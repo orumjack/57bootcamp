@@ -60,6 +60,7 @@ Scrum toplantılarının Discord üzerinden yapılması kararlaştırılmıştı
 
 ### Ürün Durumu Screenshot  
 ![image](https://github.com/user-attachments/assets/a8fe711a-70b2-426a-aebd-3db7cd5f9da2)
+![image](https://github.com/user-attachments/assets/a07f953f-da30-4eea-92d5-7964e4bd2af2)
 
 
 ---
