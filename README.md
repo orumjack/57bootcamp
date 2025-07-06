@@ -1,4 +1,5 @@
-# Forma Vitruvia
+# Takım İsmi
+Forma Vitruvia
 
 ## Ekip Üyeleri
 - Hatice Nur Özkan – Developer  
@@ -80,4 +81,4 @@ Scrum toplantılarının Discord üzerinden yapılması kararlaştırılmıştı
 - Geliştirme sürecinde ekip üyelerinin sorumlulukları ve rolleri daha net bir şekilde tanımlandı.  
 - Önümüzdeki sprint’lerde ekip içi katılımın daha dengeli olması için öneriler geliştirildi.  
 
-# 57bootcamp
+
