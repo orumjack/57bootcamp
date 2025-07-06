@@ -59,7 +59,8 @@ Scrum toplantılarının Discord üzerinden yapılması kararlaştırılmıştı
 *(Buraya sprint board ekran görüntüsü eklenecek)*
 
 ### Ürün Durumu Screenshot  
-*(Buraya ürün durumu ekran görüntüsü eklenecek)*
+![image](https://github.com/user-attachments/assets/a8fe711a-70b2-426a-aebd-3db7cd5f9da2)
+
 
 ---
 
