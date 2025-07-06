@@ -75,7 +75,7 @@ Scrum toplantılarının Discord üzerinden yapılması kararlaştırılmıştı
 
 ---
 
-## Sprint Retrospektive
+## Sprint Retrospective
 - Bir ekip üyesi pasif olsa da, diğer üyeler arasında etkili ve uyumlu bir iş birliği sağlandı.  
 - Daily Scrum toplantılarının zamanlaması ve sıklığı ekip ihtiyaçlarına göre yeniden düzenlendi.  
 - Geliştirme sürecinde ekip üyelerinin sorumlulukları ve rolleri daha net bir şekilde tanımlandı.  
