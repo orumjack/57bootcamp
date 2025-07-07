@@ -54,6 +54,7 @@ Her doğru karar seni ileriye taşıyor. Her hata döngüyü en başa alıyor. A
 
 ### Daily Scrum  
 Scrum toplantılarının Discord üzerinden yapılması kararlaştırılmıştır. Diğer bildirimlerimizi Whatsapp üzerinden iletmekteyiz.
+https://drive.google.com/drive/folders/1SWUUP5FxaRyIib0eyWZjPIs-P-GADe0E
 
 ### Sprint Board Screenshot  
 ![Ekran görüntüsü 2025-07-06 213302](https://github.com/user-attachments/assets/7ee6ed7e-8396-4678-83dc-9ab0cdc873d1)
