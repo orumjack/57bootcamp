@@ -109,6 +109,15 @@ https://drive.google.com/drive/folders/1SWUUP5FxaRyIib0eyWZjPIs-P-GADe0E
 
 ---
 
+
+##  Ürün Durumu Görseli
+<img width="1052" height="650" alt="ofis 2" src="https://github.com/user-attachments/assets/b5119e20-cab0-4752-aeaf-2ec103d3a80c" />
+<img width="732" height="692" alt="image" src="https://github.com/user-attachments/assets/472b1f24-a5ba-4805-a49d-e5603f0c1f30" />
+
+
+---
+
+
 ##  Sprint Review
 
 - Oyunun gelişimi doğrultusunda **yeni fikirler** ortaya atıldı.  
