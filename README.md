@@ -87,7 +87,7 @@ https://drive.google.com/drive/folders/1SWUUP5FxaRyIib0eyWZjPIs-P-GADe0E
 
 ---
 
-##  Sprint Planı
+##  Sprint 2 Notları
 
 - **Sprint İçinde Tamamlanması Tahmin Edilen Puan:** 20
 - **Puanlama Mantığı:**  
