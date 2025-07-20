@@ -10,21 +10,19 @@ Forma Vitruvia
 ---
 
 ## Oyun Açıklaması
-**Unseen Floor**, oyuncunun 8 saatlik bir zaman döngüsünde sıkıştığı, gözleme ve doğru tercihlere dayalı bir keşif oyunudur.  
-Oyun, sürekli tekrar eden bir koridor ya da geçiş mekânında geçer. Her geçişte oyuncunun amacı, çevredeki anomalileri — yani önceki döngüye göre farklı olan detayları — fark edip doğru seçimi yapmaktır. Bu farklar bazen çok belirgin, bazen çok küçük olabilir.
+**LOOP RUNNER**, Loop-Runner, zamanla yarıştığın tempolu bir keşif ve strateji oyunudur. Oyuncu, 70 saniyelik döngülere sıkışmış gizemli bir ofis koridorunda uyanır. Her döngüde, zamana ve kendi açgözlülüğüne karşı mücadele ederken, anormal objeleri bularak kripto parçaları toplaman gerekir. Bulduklarını Chrono-Kapsüle götürerek kasaya yatırabilir (BANK) veya daha fazlasını kazanmak için risk alarak bir sonraki döngüye girebilirsin (RISK). Ancak dikkat: Geri sayım sıfırlanırsa hepsi yanar.
+Zamansal baskının, stratejik açgözlülükle harmanlandığı bu oyun, kararlarının hem ödülünü hem de cezasını doğrudan sana hissettiriyor. 
 
 ### Öne Çıkan Özellikler
-- Basit kontrol: sadece yürümek ve seçim yapmak  
-- Çevreyle aktarılan hikâye  
+- Görevlendirilmiş ajan karakter ve kurumsal görev teması
+- Basit kontrol: Anomali nesnesi bulma ve toplama  
+- 70 saniyelik zaman döngüsü
 - Hafıza, dikkat ve karşılaştırmaya dayalı ilerleme  
 - Oyunun amacı, tüm doğru farkları bulup döngüyü tamamlamak  
-- Her seçim önemlidir; acele etmek başa dönmek demektir  
+- Artan risk ile katlanan kazanç dinamiği
 
 ### Oyun Hikâyesi
-Nerede olduğunu ya da neden burada olduğunu bilmiyorsun. Zaman hep aynı döngü içinde ilerliyor: gece, tekrar tekrar başa dönüyor. Her şey ilk bakışta aynı gibi görünse de bazı detaylar değişiyor.  
-Geçtiğin yollar tanıdık ama her seferinde küçük bir fark çıkıyor karşına. Bazen bir yazı eksik, bazen bir nesne yön değiştirmiş. Bu farkları fark etmek, döngüden çıkmanın tek yolu gibi görünüyor.  
-Her doğru karar seni ileriye taşıyor. Her hata döngüyü en başa alıyor. Ama dikkatli davranırsan, bu tekrar eden süreci kırmak mümkün olabilir.
-
+Sen, ChronoCorp adlı gizli ve yüksek güvenlikli bir zaman denetim şirketinin saha ajanısın. Görevin, “zaman döngüsüne sıkışmış alanları tespit edip stabilize etmek.” Bu alanlar, evrende zaman kırılmaları oluştuğunda ortaya çıkar; çoğu insan için görünmezdir. Ama senin işin tam da bu anomalileri bulmak ve döngüyü kırmak.
 ---
 
 ## Oyun Özellikleri
