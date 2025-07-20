@@ -104,7 +104,8 @@ https://drive.google.com/drive/folders/1SWUUP5FxaRyIib0eyWZjPIs-P-GADe0E
 ---
 
 ##  Sprint Board Görseli
-> _(Görseller buraya eklenecek)_  
+<img width="1043" height="742" alt="image" src="https://github.com/user-attachments/assets/ad9a1d0d-c998-4b75-a3c8-287e3e9b6a39" />
+  
 
 ---
 
