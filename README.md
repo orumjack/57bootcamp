@@ -85,4 +85,49 @@ https://drive.google.com/drive/folders/1SWUUP5FxaRyIib0eyWZjPIs-P-GADe0E
 - Geliştirme sürecinde ekip üyelerinin sorumlulukları ve rolleri daha net bir şekilde tanımlandı.  
 - Önümüzdeki sprint’lerde ekip içi katılımın daha dengeli olması için öneriler geliştirildi.  
 
+---
 
+##  Sprint Planı
+
+- **Sprint İçinde Tamamlanması Tahmin Edilen Puan:** 20
+- **Puanlama Mantığı:**  
+  Proje süresince tamamlanması gereken toplam backlog puanı **60** olarak belirlenmiştir.  
+  Proje toplamda **3 sprint**’e bölündüğünden, her sprint için ortalama **20 puanlık iş** planlanmıştır.
+
+---
+
+##  Daily Scrum
+
+- Toplantılar **Discord** ve **Google Meet** üzerinden gerçekleştirilmiştir.  
+- Diğer bildirimlerimizi **Whatsapp** üzerinden iletmekteyiz.
+- https://drive.google.com/drive/folders/1SWUUP5FxaRyIib0eyWZjPIs-P-GADe0E
+
+---
+
+##  Sprint Board Görseli
+> _(Görseller buraya eklenecek)_  
+
+---
+
+##  Sprint Review
+
+- Oyunun gelişimi doğrultusunda **yeni fikirler** ortaya atıldı.  
+- Oyunun **teması ve ana hikâyesi** güncellendi ve detaylandırıldı.  
+- **Mekanların temel tasarımı** yapıldı, atmosferi belirlendi.  
+- **Temel oyun mekanikleri** tamamlandı.  
+- Tamamlanan ve devam eden işler üzerine **ekip içi değerlendirmeler** yapıldı.  
+- Bir sonraki sprint için **öncelikler ve odak alanları** belirlendi.
+
+---
+
+##  Sprint Retrospective
+
+- Bir ekip üyesi pasif olsa da diğer üyeler arasında **etkili ve uyumlu iş birliği** sağlandı.  
+- **Daily Scrum toplantılarının zamanlaması** ve sıklığı ekip ihtiyaçlarına göre **arttırıldı**.  
+- Sprint boyunca yapılan değerlendirme sonucunda, **3. Sprint’te kalan işler** netleştirildi.  
+- Bu doğrultuda **çalışma temposu artırıldı**.  
+- Son haftaya ağır iş bırakmamak adına **ara kontrol noktaları** eklenecek.  
+- **Level tasarım kararları** için öncelik sıralaması belirlenecek.  
+- Görev tahminleri yapılırken **önceki sprint verileri dikkate alınacak.**
+
+---
