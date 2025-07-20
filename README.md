@@ -20,9 +20,11 @@ Zamansal baskının, stratejik açgözlülükle harmanlandığı bu oyun, kararl
 - Hafıza, dikkat ve karşılaştırmaya dayalı ilerleme  
 - Oyunun amacı, tüm doğru farkları bulup döngüyü tamamlamak  
 - Artan risk ile katlanan kazanç dinamiği
+- Tek oyunculu, yüksek tekrar oynanabilirlik
+
 
 ### Oyun Hikâyesi
-Sen, ChronoCorp adlı gizli ve yüksek güvenlikli bir zaman denetim şirketinin saha ajanısın. Görevin, “zaman döngüsüne sıkışmış alanları tespit edip stabilize etmek.” Bu alanlar, evrende zaman kırılmaları oluştuğunda ortaya çıkar; çoğu insan için görünmezdir. Ama senin işin tam da bu anomalileri bulmak ve döngüyü kırmak.
+- Sen, ChronoCorp adlı gizli ve yüksek güvenlikli bir zaman denetim şirketinin saha ajanısın. Görevin, “zaman döngüsüne sıkışmış alanları tespit edip stabilize etmek.” Bu alanlar, evrende zaman kırılmaları oluştuğunda ortaya çıkar; çoğu insan için görünmezdir. Ama senin işin tam da bu anomalileri bulmak ve döngüyü kırmak.
 ---
 
 ## Oyun Özellikleri
@@ -31,14 +33,13 @@ Sen, ChronoCorp adlı gizli ve yüksek güvenlikli bir zaman denetim şirketinin
 - Macera / Puzzle  
 - Zaman Döngüsü Mekaniği  
 - Gözleme Dayalı İlerleme  
-- Sessiz ve Atmosferik Ortam  
-- Çevresel Hikâye Anlatımı  
-- İnteraktif Görevler  
+- Atmosferik Ortam  
+- Risk kazanç dinamiği 
 
 ---
 
 ## Hedef Kitle
-- Keşif ve Macera Severler  
+- Keşif ve Risk Severler  
 - Gözlem ve Hafıza Tabanlı Oyunlardan Keyif Alanlar  
 - 13 ve Üzeri Yaşta Oyuncular  
 
