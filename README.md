@@ -1,4 +1,4 @@
-nn# Takım İsmi
+# Takım İsmi
 Forma Vitruvia
 
 ## Ekip Üyeleri
