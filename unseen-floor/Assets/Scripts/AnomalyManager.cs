@@ -91,11 +91,11 @@ public class AnomalyManager : MonoBehaviour
         }
     }
 
-    /*──────── helper for multi-prop queries (optional) ─
+    /*──────── helper for multi-prop queries (optional) ─*/
     public bool AnyAnomalyActive()
     {
         foreach (var p in allProps)
             if (p.IsAnomalyActive) return true;
         return false;
-    }*/
+    }
 }

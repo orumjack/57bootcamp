@@ -54,6 +54,7 @@ public class CapsuleTeleporter : MonoBehaviour
         /*── 3. (optional) trigger doors / anomalies / counters ───*/
         // DoorManager.Instance.OnLoopComplete();
         AnomalyManager.Instance.StartNewLoop();
+        DecisionManager.Instance.ResetForNewLoop();
 
         /*── 4. resume control next physics tick ──────────────────*/
         yield return new WaitForFixedUpdate();
