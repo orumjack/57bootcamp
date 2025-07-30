@@ -13,17 +13,17 @@ public class GameSession : MonoBehaviour
     [SerializeField] private LoopParams p;
 
     /*──────── public read-only state ────────*/
-    public int  TotalBanked   { get; private set; }
-    public int  CurrentPayout { get; private set; }
-    public int  Streak        { get; private set; }
-    public int  TimerSec      => Mathf.CeilToInt(timer);   // HUD reads this
+    public int TotalBanked { get; private set; }
+    public int CurrentPayout { get; private set; }
+    public int Streak { get; private set; }
+    public int TimerSec => Mathf.CeilToInt(timer);   // HUD reads this
 
     /*──────── private timer fields ─────────*/
     private float timer;          // float seconds for smooth ticking
-    private bool  timerRunning;   // gate so we can pause during capsules
+    private bool timerRunning;   // gate so we can pause during capsules
 
     /*──────────────── life-cycle ───────────*/
-    private void Awake ()
+    private void Awake()
     {
         if (I && I != this) { Destroy(gameObject); return; }
         I = this;
@@ -38,9 +38,9 @@ public class GameSession : MonoBehaviour
     public void ResetToBase()
     {
         CurrentPayout = p.BASE_PAYOUT;
-        timer         = p.START_TIMER_SEC;
-        timerRunning  = true;                 // timer counts as soon as run starts
-        Streak        = 0;
+        timer = p.START_TIMER_SEC;
+        timerRunning = true;                 // timer counts as soon as run starts
+        Streak = 0;
     }
 
     /// <summary>Call after a successful risk-decision.</summary>
@@ -88,8 +88,8 @@ public class GameSession : MonoBehaviour
     public void BeginLoopTimer() => timerRunning = true;
 
     /*──────── external timer gates ───────*/
-public void PauseTimer()  => timerRunning = false;
-public void ResumeTimer() => timerRunning = true;
+    public void PauseTimer() => timerRunning = false;
+    public void ResumeTimer() => timerRunning = true;
 
 
     /// <summary>Tick down the countdown; call once per frame.</summary>
@@ -106,4 +106,47 @@ public void ResumeTimer() => timerRunning = true;
             // TODO: trigger lose overlay or reset scene
         }
     }
+
+    public bool AwaitingChoice { get; private set; }   // exposed for HUD if needed
+
+    public void EnterSafeZone()
+    {
+        timerRunning = false;
+        AwaitingChoice = true;
+    }
+
+    public void ChooseBank()
+    {
+        if (!AwaitingChoice) return;
+        TotalBanked += CurrentPayout;
+        ResetToBase();                 // timer = START_TIMER_SEC
+        AwaitingChoice = false;
+    }
+
+    public void ChooseRisk()
+    {
+        if (!AwaitingChoice) return;
+        ApplySuccess();                // increases pot, shrinks timer
+        AwaitingChoice = false;
+    }
+    
+    /*  add to fields */
+public bool LastDecisionCorrect { get; private set; }   // read by interactable
+
+/* called by SafeZone AFTER scoring anomaly */
+public void SetDecisionResult(bool correct)
+{
+    LastDecisionCorrect = correct;
+}
+
+/* helper used by ChoiceInteractable */
+public void OnChooseRisk()
+{
+    if (LastDecisionCorrect) ApplySuccess();   // shrink timer, grow pot
+    else ResetPotOnly();                       // pot lost, timer full
+}
+
+/* OnChooseBank already exists as ChooseBank() */
+
+
 }
