@@ -7,30 +7,23 @@ public class SafeZone : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
-        // ▶ Patch E-1: reset all Bank/Risk props when entering any Capsule
-        foreach (var choice in FindObjectsOfType<ChoiceInteractable>())
-            choice.gameObject.SetActive(true);
-
         var gm  = GameSession.I;
         var dec = DecisionManager.Instance;
 
-        gm.PauseTimer();           // pause countdown in Safe Zone
-        gm.EnterSafeZone();        // flag AwaitingChoice & keep timer paused
+        gm.PauseTimer();        // stop countdown while in capsule
+        gm.EnterSafeZone();     // AwaitingChoice = true
 
-        /* evaluate last corridor decision */
+        /* evaluate the corridor decision */
         if (dec.DecisionIsMade)
         {
             bool correct = dec.PlayerChoseAnomaly ==
                            AnomalyManager.Instance.HasAnomalyThisLoop;
 
-            // remember the result for later Bank/Risk choice
-            gm.SetDecisionResult(correct);
+            gm.SetDecisionResult(correct);   // <- SINGLE new call
+            // (No ApplySuccess / ResetPotOnly here anymore)
         }
 
-        /* prepare for next corridor run */
-        dec.ResetForNewLoop();
-
-        // Door open/close & gm.BeginLoopTimer() happen later,
-        // once the player actually chooses Bank or Risk.
+        dec.ResetForNewLoop();  // ready input gate for next corridor
+        // Doors & BeginLoopTimer are triggered by Bank / Risk choice.
     }
 }
