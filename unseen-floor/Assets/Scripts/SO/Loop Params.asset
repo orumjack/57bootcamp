@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32fad16c3e27bc4fa561df5cd19bd68, type: 3}
+  m_Name: Loop Params
+  m_EditorClassIdentifier: 
+  BASE_PAYOUT: 100
+  MULTIPLIER_MEAN: 1.7
+  MULTIPLIER_VARIANCE: 0.15
+  START_TIMER_SEC: 30
+  TIMER_MULTIPLIER: 0.8
+  TIMER_FLAT_DECREMENT: 1
+  SUCCESS_PROB_START: 0.9
+  SUCCESS_PROB_DROP_THRESHOLD: 3
+  SUCCESS_PROB_DROP_PER_STREAK: 0.05
+  TARGET_SCORE: 3000
+  DEDUCT_BANK_ON_FAIL: 1
+  BANK_CAN_GO_NEGATIVE: 1

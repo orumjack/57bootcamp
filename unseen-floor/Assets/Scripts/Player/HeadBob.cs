@@ -1,56 +1,59 @@
 using UnityEngine;
 
+/// <summary>
+/// Simple sine-wave head-bob for walking and sprinting.
+/// </summary>
 [RequireComponent(typeof(PlayerMovement))]
+[DisallowMultipleComponent]
 public class HeadBob : MonoBehaviour
 {
-    [Header("Bob Settings")]
+    [Header("Amplitude")]
     [SerializeField] private float amplitudeWalk   = 0.03f;
     [SerializeField] private float amplitudeSprint = 0.06f;
+
+    [Header("Frequency (cycles/sec)")]
     [SerializeField] private float frequencyWalk   = 6f;
     [SerializeField] private float frequencySprint = 9f;
 
-    private PlayerMovement mover;
-    private Transform cam;
-    private Vector3  startLocalPos;
-    private float    bobTimer;
+    /* ───────── private fields ─── */
+    PlayerMovement _mover;
+    Transform      _cam;
+    Vector3        _startLocalPos;
+    float          _bobTimer;
 
-    private void Awake ()
+    /* ───────── life-cycle ─────── */
+    void Awake()
     {
-        mover = GetComponent<PlayerMovement>();
-        cam   = GetComponentInChildren<Camera>().transform;
-        startLocalPos = cam.localPosition;
+        _mover          = GetComponent<PlayerMovement>();
+        _cam            = GetComponentInChildren<Camera>().transform;
+        _startLocalPos  = _cam.localPosition;
     }
 
-    private void LateUpdate ()
+    /* ───────── after movement ─── */
+    void LateUpdate()
     {
-        if (mover.Velocity.sqrMagnitude > 0.1f)
+        if (_mover.Velocity.sqrMagnitude > 0.1f)
         {
-            // choose profile
-            bool running = mover.IsRunning;      // ← clean & explicit
-            float amp = running ? amplitudeSprint : amplitudeWalk;
-            float freq = running ? frequencySprint : frequencyWalk;
+            bool   running = _mover.IsRunning;
+            float  amp     = running ? amplitudeSprint : amplitudeWalk;
+            float  freq    = running ? frequencySprint : frequencyWalk;
 
-            bobTimer += Time.deltaTime * freq;
+            _bobTimer += Time.deltaTime * freq;
 
-            Vector3 offset = new Vector3
-            (
-                Mathf.Sin(bobTimer) * amp,
-                Mathf.Cos(bobTimer * 2f) * amp,
-                0f
-            );
+            Vector3 offset = new(
+                Mathf.Sin(_bobTimer)       * amp,
+                Mathf.Cos(_bobTimer * 2f)  * amp,
+                0f);
 
-            cam.localPosition = startLocalPos + offset;
+            _cam.localPosition = _startLocalPos + offset;
         }
         else
         {
-            // return smoothly
-            bobTimer = 0f;
-            cam.localPosition = Vector3.Lerp
-            (
-                cam.localPosition,
-                startLocalPos,
-                Time.deltaTime * 5f
-            );
+            _bobTimer = 0f;
+            _cam.localPosition = Vector3.Lerp(
+                _cam.localPosition,
+                _startLocalPos,
+                Time.deltaTime * 5f);
         }
     }
 }

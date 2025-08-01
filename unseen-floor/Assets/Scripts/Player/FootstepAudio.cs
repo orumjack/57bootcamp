@@ -1,49 +1,63 @@
 using UnityEngine;
 
+/// <summary>
+/// Loops a walking or running ambience clip while the player is in motion.
+/// Walk and run loops are swapped seamlessly when the sprint key is held.
+/// </summary>
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(AudioSource))]
+[DisallowMultipleComponent]
 public class FootstepAudio : MonoBehaviour
 {
-    [SerializeField] private AudioClip[] walkLoops;   // 6-s ambience of footsteps
+    [Header("Loop Clips (drop WAV/OGG)")]
+    [Tooltip("Ambient loop played while walking")]
+    [SerializeField] private AudioClip[] walkLoops;
+
+    [Tooltip("Ambient loop played while sprinting")]
     [SerializeField] private AudioClip[] runLoops;
 
-    private PlayerMovement mover;
-    private AudioSource    src;
-    private bool           wasMoving;
+    /* ───────── private fields ─── */
+    PlayerMovement _mover;
+    AudioSource    _src;
+    bool           _wasMoving;
 
-    private void Awake ()
+    /* ───────── life-cycle ─────── */
+    void Awake()
     {
-        mover = GetComponent<PlayerMovement>();
-        src   = GetComponent<AudioSource>();
-        src.playOnAwake = false;
-        src.loop = true;                   // we want the clip to cycle
+        _mover          = GetComponent<PlayerMovement>();
+        _src            = GetComponent<AudioSource>();
+        _src.playOnAwake = false;
+        _src.loop        = true;
     }
 
-    private void Update ()
+    /* ───────── frame tick ─────── */
+    void Update()
     {
-        bool moving = mover.Velocity.sqrMagnitude > 0.1f;
+        bool moving = _mover.Velocity.sqrMagnitude > 0.1f;
 
-        // 1. Started or stopped moving?
-        if (moving && !wasMoving)           PlayLoop();
-        if (!moving &&  wasMoving)          src.Stop();
+        if (moving && !_wasMoving) PlayLoop();     // start
+        if (!moving && _wasMoving)  _src.Stop();   // stop
 
-        // 2. Still moving but switched walk↔run?
-        if (moving && wasMoving && StateChanged())     PlayLoop();
+        // running ↔ walking toggle
+        if (moving && _wasMoving && StateChanged())
+            PlayLoop();
 
-        wasMoving = moving;
+        _wasMoving = moving;
     }
 
-    // ----------------- helpers -----------------
-
-    void PlayLoop ()
+    /* ───────── helpers ────────── */
+    void PlayLoop()
     {
-        AudioClip[] bank = mover.IsRunning ? runLoops : walkLoops;
+        AudioClip[] bank = _mover.IsRunning ? runLoops : walkLoops;
         if (bank.Length == 0) return;
 
-        src.clip = bank[Random.Range(0, bank.Length)];
-        src.Play();
+        _src.clip = bank[Random.Range(0, bank.Length)];
+        _src.Play();
     }
 
-    bool StateChanged ()
-        => mover.IsRunning != (src.clip != null && System.Array.IndexOf(runLoops, src.clip) >= 0);
+    bool StateChanged()
+    {
+        bool clipIsRun = _src.clip && System.Array.IndexOf(runLoops, _src.clip) >= 0;
+        return _mover.IsRunning != clipIsRun;
+    }
 }

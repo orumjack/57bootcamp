@@ -1,60 +1,69 @@
-// PlayerMovement.cs
 using UnityEngine;
 
+/// <summary>
+/// First-person controller: WASD movement with optional sprint and mouse look.
+/// Other systems read <see cref="CurrentSpeed"/>, <see cref="Velocity"/>,
+/// and <see cref="IsRunning"/>.
+/// </summary>
 [RequireComponent(typeof(CharacterController))]
 [DisallowMultipleComponent]
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Speeds")]
+    [Header("Move Speeds")]
     [SerializeField] private float walkSpeed   = 3f;
     [SerializeField] private float sprintSpeed = 5.5f;
 
-    public float WalkSpeed   => walkSpeed;
-    public bool  IsRunning   { get; private set; }
-    [Header("Mouse")]
-    [SerializeField] private float lookSpeed = 2f;
+    [Header("Mouse Look")]
+    [SerializeField] private float lookSpeed   = 2f;
 
-    public float CurrentSpeed { get; private set; }   // <-- read by HeadBob / Audio
-    public Vector3 Velocity   { get; private set; }   //  (magnitude & grounded)
+    /* ───────── public read-only ── */
+    public float WalkSpeed    => walkSpeed;
+    public bool  IsRunning    { get; private set; }
+    public float CurrentSpeed { get; private set; }
+    public Vector3 Velocity   { get; private set; }   // world-space
 
-    private CharacterController cc;
-    private Transform cam;
-    private float pitch;
+    /* ───────── private fields ─── */
+    CharacterController _cc;
+    Transform           _cam;
+    float               _pitch;
 
-    private void Awake ()
+    /* ───────── life-cycle ─────── */
+    void Awake()
     {
-        cc  = GetComponent<CharacterController>();
-        cam = GetComponentInChildren<Camera>().transform;
+        _cc  = GetComponent<CharacterController>();
+        _cam = GetComponentInChildren<Camera>().transform;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void Update ()
+    void Update()
     {
         HandleLook();
         HandleMove();
     }
 
-    private void HandleLook ()
+    /* ───────── input handlers ─── */
+    void HandleLook()
     {
         float mx = Input.GetAxis("Mouse X") * lookSpeed;
         float my = Input.GetAxis("Mouse Y") * lookSpeed;
 
         transform.Rotate(0f, mx, 0f);
-        pitch = Mathf.Clamp(pitch - my, -80f, 80f);
-        cam.localRotation = Quaternion.Euler(pitch, 0f, 0f);
+
+        _pitch = Mathf.Clamp(_pitch - my, -80f, 80f);
+        _cam.localRotation = Quaternion.Euler(_pitch, 0f, 0f);
     }
 
-    private void HandleMove ()
+    void HandleMove()
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
         Vector3 dir = (transform.right * h + transform.forward * v).normalized;
-        bool sprintKey  = Input.GetKey(KeyCode.LeftShift) && v > 0f;
-        IsRunning       = sprintKey; 
-        CurrentSpeed    = IsRunning ? sprintSpeed : walkSpeed;
 
-        cc.SimpleMove(dir * CurrentSpeed);
-        Velocity = cc.velocity; // world-space, includes gravity
+        IsRunning    = Input.GetKey(KeyCode.LeftShift) && v > 0f;
+        CurrentSpeed = IsRunning ? sprintSpeed : walkSpeed;
+
+        _cc.SimpleMove(dir * CurrentSpeed);
+        Velocity = _cc.velocity;   // includes gravity
     }
 }
