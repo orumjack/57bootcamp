@@ -10,20 +10,24 @@ public class SafeZone : MonoBehaviour
         var gm  = GameSession.I;
         var dec = DecisionManager.Instance;
 
-        gm.PauseTimer();        // stop countdown while in capsule
-        gm.EnterSafeZone();     // AwaitingChoice = true
+        gm.PauseTimer();          // stop countdown inside capsule
+        gm.EnterSafeZone();       // AwaitingChoice = true
 
-        /* evaluate the corridor decision */
+        /* evaluate last corridor decision (or default-success if none) */
+        bool correct;
         if (dec.DecisionIsMade)
         {
-            bool correct = dec.PlayerChoseAnomaly ==
-                           AnomalyManager.Instance.HasAnomalyThisLoop;
-
-            gm.SetDecisionResult(correct);   // <- SINGLE new call
-            // (No ApplySuccess / ResetPotOnly here anymore)
+            correct = dec.PlayerChoseAnomaly ==
+                      AnomalyManager.Instance.HasAnomalyThisLoop;
+        }
+        else
+        {
+            correct = true;       // no click this loop → treat as neutral success
         }
 
-        dec.ResetForNewLoop();  // ready input gate for next corridor
-        // Doors & BeginLoopTimer are triggered by Bank / Risk choice.
+        gm.SetDecisionResult(correct);
+
+        dec.ResetForNewLoop();    // re-arm decision gate for next corridor
+        // Doors & gm.BeginLoopTimer() will run after the player picks Bank/Risk.
     }
 }

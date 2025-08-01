@@ -24,6 +24,9 @@ public class GameSession : MonoBehaviour
     /* ───────── private fields ───── */
     private float timer;
     private bool timerRunning;
+
+    public bool IsTimerRunning => timerRunning;
+
     private bool prizeSpawned;
 
     /* ───────── life-cycle ───────── */

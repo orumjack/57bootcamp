@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32fad16c3e27bc4fa561df5cd19bd68, type: 3}
   m_Name: Loop Params
   m_EditorClassIdentifier: 
-  BASE_PAYOUT: 10
+  BASE_PAYOUT: 100
   MULTIPLIER_MEAN: 1.7
   MULTIPLIER_VARIANCE: 0.15
   START_TIMER_SEC: 30
