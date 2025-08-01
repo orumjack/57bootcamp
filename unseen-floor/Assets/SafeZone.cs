@@ -3,6 +3,10 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class SafeZone : MonoBehaviour
 {
+    public enum CapsuleType { A, B }
+    [SerializeField] private CapsuleType capsule = CapsuleType.A;
+
+    /*───────────────────────────────*/
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
@@ -10,24 +14,45 @@ public class SafeZone : MonoBehaviour
         var gm  = GameSession.I;
         var dec = DecisionManager.Instance;
 
-        gm.PauseTimer();          // stop countdown inside capsule
-        gm.EnterSafeZone();       // AwaitingChoice = true
+        /* 1 ▸ pause countdown, mark safe zone */
+        gm.PauseTimer();
+        gm.EnterSafeZone();
 
-        /* evaluate last corridor decision (or default-success if none) */
+        /* 2 ▸ B-capsule door closes as soon as you step in */
+        if (capsule == CapsuleType.B)
+            DoorManager.I.CloseDoorB();
+
+        /* 3 ▸ evaluate the corridor decision */
         bool correct;
         if (dec.DecisionIsMade)
         {
             correct = dec.PlayerChoseAnomaly ==
                       AnomalyManager.Instance.HasAnomalyThisLoop;
+
+            if (!correct)
+                gm.OnWrongDecision();        // ← immediate pot-to-bank deduction
         }
         else
         {
-            correct = true;       // no click this loop → treat as neutral success
+            correct = true;                  // no click = neutral success
         }
 
         gm.SetDecisionResult(correct);
 
-        dec.ResetForNewLoop();    // re-arm decision gate for next corridor
-        // Doors & gm.BeginLoopTimer() will run after the player picks Bank/Risk.
+        /* 4 ▸ re-arm decision gate for next corridor */
+        dec.ResetForNewLoop();
+        // Door A closes & timer restarts in OnTriggerExit (Capsule A).
+    }
+
+    /*───────────────────────────────*/
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.CompareTag("Player")) return;
+
+        if (capsule == CapsuleType.A)
+        {
+            DoorManager.I.CloseDoorA();
+            GameSession.I.BeginLoopTimer();   // corridor timer resumes
+        }
     }
 }

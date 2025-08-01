@@ -32,6 +32,7 @@ public class DecisionManager : MonoBehaviour
 
         /* 3 ▸ stop timer for the remainder of this loop */
         GameSession.I.PauseTimer();
+        DoorManager.I.OpenDoorB();
 
         /* 4 ▸ optional debug echo */
         Debug.Log($"Decision recorded: {(rmb ? "ANOMALY" : "CLEAN")}");

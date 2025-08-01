@@ -30,10 +30,9 @@ public class ChoiceInteractable : MonoBehaviour
                     GameSession.I.OnChooseRisk();      // keep / shrink timer
                     break;
             }
-
-            DoorManager.I.OpenCapsuleDoor();           // let player exit
             GameSession.I.BeginLoopTimer();            // resume countdown
             DecisionManager.Instance.ResetForNewLoop();
+            DoorManager.I.OpenDoorA();
 
             // deactivate highlight & input until next safe-zone arrival
             if (highlight) highlight.SetActive(false);
