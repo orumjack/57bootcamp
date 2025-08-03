@@ -140,3 +140,56 @@ https://drive.google.com/drive/folders/1SWUUP5FxaRyIib0eyWZjPIs-P-GADe0E
 - Görev tahminleri yapılırken **önceki sprint verileri dikkate alınacak.**
 
 ---
+
+## Sprint 3 Notları
+
+###  Sprint İçinde Tamamlanması Tahmin Edilen Puan
+**20 Puan**
+
+> **Puanlama Mantığı:**  
+> Proje süresince tamamlanması gereken toplam backlog puanı 60 olarak belirlenmiştir.  
+> Proje toplamda 3 sprint’e bölündüğünden, her sprint için ortalama 20 puanlık iş planlanmıştır.
+
+---
+
+###  Daily Scrum
+- Scrum toplantılarımız **Discord** üzerinden gerçekleştirilmiştir.  
+- Diğer bildirim ve iletişimler için **WhatsApp** kullanılmaktadır.  
+- İlgili dokümana buradan ulaşabilirsiniz:  
+  [Sprint Belgeleri (Google Drive)](https://drive.google.com/drive/folders/1SWUUP5FxaRyIib0eyWZjPIs-P-GADe0E)
+
+---
+
+###  Sprint Board Screenshot
+<img width="1663" height="1668" alt="image" src="https://github.com/user-attachments/assets/31768209-d734-4f7a-8337-057f2695c76b" />
+
+
+---
+
+###  Ürün Durumu Screenshot
+https://www.youtube.com/watch?v=8ntaZXHIgro&ab_channel=NazDilber
+
+---
+
+###  Sprint Review
+
+-  **Zaman döngüsü mekaniği** tamamlandı ve test edildi.  
+-  **Chrono capsule** iç mekân tasarımı ve kullanıcı etkileşimleri eklendi.  
+-  Oyunun başında yer alan **kısa anlatı ve rehber** tamamlandı.  
+-  **Ses efektleri** ve **temel müzik teması** entegre edildi.  
+-  **Işık ve atmosfer detayları** güncellendi.  
+-  Ürünün kısa bir **demosu gösterildi**.
+
+---
+
+###  Sprint Retrospective
+
+-  **Takım içi iletişim** hızlandı.  
+-  Süreçle ilgili **borçlar netleştirildi** ve kapatıldı.  
+-  Proje boyunca **takım ruhu** korundu ve özveriyle çalışıldı.  
+
+**Katılımcılar:**  
+- Ali Baran Ulaşan  
+- Hatice Nur Özkan  
+- Naz Dilber  
+- Eda Göksüçukur
